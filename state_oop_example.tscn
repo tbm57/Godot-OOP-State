@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://caxei84vxjjjn"]
 
-[ext_resource type="Script" path="res://PathFollow2D.gd" id="1_rqbbo"]
+[ext_resource type="Script" path="res://StateMovementNode.gd" id="1_jv3w0"]
 [ext_resource type="Texture2D" uid="uid://dynibmwoxga1l" path="res://icon.svg" id="2_83acy"]
 [ext_resource type="Script" path="res://UI.gd" id="3_pdbxn"]
 
@@ -15,13 +15,13 @@ point_count = 6
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_yiqks")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="StateMovementNode" type="PathFollow2D" parent="Path2D"]
 position = Vector2(250, 50)
 rotation = 0.785398
 rotates = false
-script = ExtResource("1_rqbbo")
+script = ExtResource("1_jv3w0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/StateMovementNode"]
 rotation = -0.785398
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_83acy")
@@ -67,10 +67,10 @@ offset_bottom = 471.0
 text = "Play"
 
 [connection signal="pressed" from="UI/Forward" to="UI" method="play"]
-[connection signal="pressed" from="UI/Forward" to="Path2D/PathFollow2D" method="change_state" binds= [0]]
+[connection signal="pressed" from="UI/Forward" to="Path2D/StateMovementNode" method="change_state" binds= [0]]
 [connection signal="pressed" from="UI/Backward" to="UI" method="play"]
-[connection signal="pressed" from="UI/Backward" to="Path2D/PathFollow2D" method="change_state" binds= [1]]
+[connection signal="pressed" from="UI/Backward" to="Path2D/StateMovementNode" method="change_state" binds= [1]]
 [connection signal="pressed" from="UI/Pause" to="UI" method="pause"]
-[connection signal="pressed" from="UI/Pause" to="Path2D/PathFollow2D" method="change_state" binds= [2]]
+[connection signal="pressed" from="UI/Pause" to="Path2D/StateMovementNode" method="change_state" binds= [2]]
 [connection signal="pressed" from="UI/Play" to="UI" method="play"]
-[connection signal="pressed" from="UI/Play" to="Path2D/PathFollow2D" method="change_state" binds= [3]]
+[connection signal="pressed" from="UI/Play" to="Path2D/StateMovementNode" method="change_state" binds= [3]]
